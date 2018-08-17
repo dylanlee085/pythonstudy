@@ -57,7 +57,3 @@ if __name__ == '__main__':
     for prefix in get_line(urls):
         get_position(url,prefix)
         
-
-
-
-
