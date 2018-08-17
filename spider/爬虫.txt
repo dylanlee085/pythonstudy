@@ -6,7 +6,7 @@
 
 2. 爬虫库
   2.1 爬虫爬取库: urllib, requests
-  2.2 爬虫解析库: xlml BeautifulSoup re 
+  2.2 爬虫解析库: xlml, BeautifulSoup, re 
   2.3 爬虫数据存储: mysql ,redis, mongodb
 
 3.常见问题
