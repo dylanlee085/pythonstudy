@@ -15,9 +15,6 @@ if __name__ == '__main__' :
     numList = []
     for i in xrange(8) :
         p = multiprocessing.Process(target=do, args=(i,))
-        numList.append(p)
         p.start()
         p.join()
         print("Process end.")
-#    for i in xrange(8):
-#        do(i)
