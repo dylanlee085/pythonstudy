@@ -10,7 +10,7 @@
 
 import requests
 from bs4 import BeautifulSoup
-from multiprocessing import Pool
+
 
 def get_url(city):
     urls = []

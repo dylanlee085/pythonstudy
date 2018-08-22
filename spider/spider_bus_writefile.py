@@ -10,7 +10,6 @@
 
 import requests
 from bs4 import BeautifulSoup
-from multiprocessing import Pool
 import time
 import sys
 reload(sys)
