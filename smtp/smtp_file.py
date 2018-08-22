@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
-username = "lianjop@163.com"
+username = "xxxx"
 password = "*******"
 host="smtp.163.com"
 
@@ -42,5 +42,5 @@ def sendmail(sender,receiver,content):
 if __name__ == "__main__":
     sender = "运维测试" + "<" + username +">"
     content = "请查收每日入驻数据"
-    receiver = ["782820303@qq.com","ljp_20131201@163.com"]
+    receiver = ["xxx@qq.com","xxx@163.com"]
     sendmail(sender,receiver,content)
