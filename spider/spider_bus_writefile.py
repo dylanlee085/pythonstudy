@@ -56,23 +56,6 @@ def get_position(url,prefix):
         count2 = '总计%d站' % len(positions[1].find_all('a'))
         for b_position in positions[1].find_all('a'):
             b_positions.append(b_position.string)
-#    for i in forwards:
-#        with open('line.txt', 'a') as f:
-#            f.write(i + '\n')
-#    for i in f_positions:
-#        with open('line.txt', 'a') as f:
-#            f.write(i + '\n')
-#    with open('line.txt', 'a') as f:
-#        f.write(count1 + '\n')
-#    for i in backs:
-#        with open('line.txt', 'a') as f:
-#            f.write(i + '\n')
-#    for i in b_positions:
-#        with open('line.txt', 'a') as f:
-#            f.write(i + '\n')
-#    with open('line.txt', 'a') as f:
-#        f.write(count2 + '\n')
-#    f.close()
         with open('line.txt', 'a') as f:
             f.write(forwards[0] + '\n')
             f.write('\n'.join(f_positions) + '\n')
