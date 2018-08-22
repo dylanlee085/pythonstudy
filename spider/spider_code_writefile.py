@@ -44,8 +44,6 @@ def get_all_City(pro_names,pro_urls):
         city_names = []
         city_urls = []
         city_codes = []
-        infos = []
-        pro_name = pro_names
         pattern = re.compile('<tr class=.*?><td><a href=\'(.*?)\'>(.*?)</a></td><td><a.*?>(.*?)</a></td></tr>', re.S)
         for i in re.findall(pattern,html):
             code = i[1]
@@ -55,16 +53,25 @@ def get_all_City(pro_names,pro_urls):
             prefix = i[0]
             fullurl = 'http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2017/' + prefix
             city_urls.append(fullurl)
-        info = pro_name, city_codes, city_names, city_urls
-        infos.append(info)
-        print infos
+        return city_codes, city_names, city_urls
     except:
         exit('url 解析失败')  
+
+def write_into_file(pro_name,city_codes, city_names, city_urls):
+    with open('code.txt', 'a') as f:
+        f.write(pro_name + '\n')
+        for city_code,city_name,city_url in zip(city_codes, city_names, city_urls):
+            f.write(city_code +' ') 
+            f.write(city_name + ' ') 
+            f.write(city_url + '\n') 
+        f.close()
 
 
 
 if __name__ == "__main__":
     url = 'http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2017/index.html'
     for pro_names, pro_urls in  get_province(url):
-        get_all_City(pro_names,pro_urls)
+        pro_name = pro_names
+        city_codes, city_names, city_urls = get_all_City(pro_names,pro_urls)
+        write_into_file(pro_name,city_codes, city_names, city_urls)
         time.sleep(5)
