@@ -32,7 +32,6 @@ def get_line(urls):
             for i in i.find_all('a'):
                 prefix = i.get('href')
                 prefixs.append(prefix)
-    print prefixs
     return prefixs
 
 
@@ -56,11 +55,12 @@ def get_position(url,prefixs):
                 print b_position.string
            
 if __name__ == '__main__':
-    city = 'guangzhou'
-    url = 'http://guangzhou.8684.cn'
+    city = 'shaoguan'
+    url = 'http://%s.8684.cn' % city
     urls = get_url(city)
     prefix = get_line(urls)
-    print get_position(url, prefix)
+    print len(prefix)
+#    print get_position(url, prefix)
 
 
 
