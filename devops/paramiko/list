@@ -1,0 +1,2 @@
+192.168.80.128,root,yunwei,22,cat /etc/redhat-release
+192.168.80.132,root,yunwei,22,df -h
