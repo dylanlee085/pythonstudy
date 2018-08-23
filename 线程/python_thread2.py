@@ -10,6 +10,7 @@ import time
 '''
 https://www.cnblogs.com/yeayee/p/4952022.html
 https://www.cnblogs.com/tkqasn/p/5700281.html
+https://github.com/search?l=Python&q=%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%88%AC%E8%99%AB&type=Repositories
 '''
 
 #方法二：从Thread继承，并重写run()
