@@ -7,6 +7,10 @@ import time
 
 
 
+'''
+https://www.cnblogs.com/yeayee/p/4952022.html
+'''
+
 #方法二：从Thread继承，并重写run()
 class MyThread(threading.Thread):
     def __init__(self,arg):
