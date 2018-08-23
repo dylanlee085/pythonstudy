@@ -9,6 +9,7 @@ import time
 
 '''
 https://www.cnblogs.com/yeayee/p/4952022.html
+https://www.cnblogs.com/tkqasn/p/5700281.html
 '''
 
 #方法二：从Thread继承，并重写run()
