@@ -5,12 +5,12 @@ import paramiko
 
 def exec_commands(host,username,password,command,port=22):
     #建立一个trans对象
-    trans = paramiko.Transport((host, port))
+    transport = paramiko.Transport((host, port))
     #建立连接
-    trans.connect(username=username,password=password)
+    transport.connect(username=username,password=password)
     #将sshclient 对象的transport指定为前面建立的trans对象
     ssh = paramiko.SSHClient()
-    ssh._transport=trans
+    ssh._transport=transport
     #执行命令
     stdin, stdout, stderr = ssh.exec_command(command)
     #打印输出
@@ -23,7 +23,7 @@ def exec_commands(host,username,password,command,port=22):
         print "******** %s the command is failed!********" % host
         print err_result
     #关闭连接
-    trans.close()
+    transport.close()
 
 if __name__ == '__main__':
     with open('list', 'r') as f:
