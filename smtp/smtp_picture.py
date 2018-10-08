@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 
-username = "lianjop@163.com"
+username = ""
 password = "*******"
 host="smtp.163.com"
 
