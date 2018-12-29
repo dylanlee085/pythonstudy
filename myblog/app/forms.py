@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-#从flask_wtf导入FlaskForm的基类
+#从flask_wtf导入FlaskForm
 from flask_wtf import FlaskForm
 #由于flask_wtf插件本身提供字段类型,所以从wtf从wtforms导入四个表示表单字段的类
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
