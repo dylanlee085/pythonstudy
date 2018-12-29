@@ -22,7 +22,7 @@ import time
 def get_symbol_name():
     url = "https://xueqiu.com/cubes/discover/rank/cube/list.json"
 
-    querystring = {"category": "12", "count": "10", "market": "cn", "profit": "annualized_gain_rate"}
+    querystring = {"category": "12", "count": "400", "market": "cn", "profit": "monthly_gain"}
 
     payload = ""
     headers = {
@@ -61,20 +61,41 @@ def get_stock_name(symbols):
   #      url = 'https://xueqiu.com/p/' + symbol
         response = requests.get(url, headers=headers)
         html = response.text
-        print html
         pos_start = html.find('SNB.cubeInfo = ') + len('SNB.cubeInfo = ')
         pos_end = html.find('SNB.cubePieData')
         data = html[pos_start:pos_end]
         data = json.loads(data.split(';')[0])
         for stock in  data['last_rebalancing']['holdings']:
-            print stock
-            print stock['stock_symbol']
-            print stock['stock_name']
-            print stock['weight']
+            stock_symbol = stock['stock_symbol']
+            stock_name = stock['stock_name']
+            weight = stock['weight']
+            yield symbol, stock_symbol ,stock_name, weight
         print "========%s=========" % symbol
-        time.sleep(10)
+
+def insert_mysql(symbol, stock_symbol ,stock_name, weight):
+    host = 'localhost'
+    user = 'root'
+    passwd = 'yunwei'
+    db = 'mysql'
+    port = 3306
+    filterwarnings('ignore', category = MySQLdb.Warning)
+    conn = MySQLdb.connect(host, user, passwd, db, port, charset='utf8')
+    cur = conn.cursor()
+    cur.execute('create database if not exists xueqiu default charset=utf8')
+    conn.select_db('xueqiu')
+    cur.execute('create table if not exists zh_info(id int(6) auto_increment primary key, symbol varchar(80) NOT NULL, stock_symbol varchar(80),stock_name varchar(80), weight varchar(80)) default charset=utf8')
+    try:
+            cur.execute('insert into zh_info (symbol, stock_symbol ,stock_name, weight) values (%s,%s,%s,%s)',(symbol, stock_symbol ,stock_name, weight))
+    except:
+        print "记录已存在"
+    conn.commit()
+    cur.close()
+    conn.close()
+
 
 if __name__ == '__main__':
     html = get_symbol_name()
     symbols = para_symbol_html(html)
-    get_stock_name(symbols)
+    for symbol, stock_symbol ,stock_name, weight in get_stock_name(symbols):
+        insert_mysql(symbol, stock_symbol, stock_name, weight)
+        time.sleep(10)
