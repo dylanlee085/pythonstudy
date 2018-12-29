@@ -61,16 +61,15 @@ def get_stock_name(symbols):
   #      url = 'https://xueqiu.com/p/' + symbol
         response = requests.get(url, headers=headers)
         html = response.text
-        print html
         pos_start = html.find('SNB.cubeInfo = ') + len('SNB.cubeInfo = ')
         pos_end = html.find('SNB.cubePieData')
         data = html[pos_start:pos_end]
         data = json.loads(data.split(';')[0])
         for stock in  data['last_rebalancing']['holdings']:
-            print stock
-            print stock['stock_symbol']
-            print stock['stock_name']
-            print stock['weight']
+        #    print stock
+        #    print stock['stock_symbol']
+        #    print stock['stock_name']
+        #    print stock['weight']
         print "========%s=========" % symbol
         time.sleep(10)
 
