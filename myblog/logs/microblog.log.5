@@ -1,4 +1,4 @@
-2018-12-26 16:01:34,419 ERROR: Exception on /index [GET] [in /usr/lib64/python2.7/site-packages/flask/app.py:1761]
+2018-12-26 16:06:02,903 ERROR: Exception on /index [GET] [in /usr/lib64/python2.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/usr/lib64/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -57,7 +57,7 @@ Traceback (most recent call last):
   File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
     cursor.execute(statement, parameters)
 OperationalError: (sqlite3.OperationalError) no such table: user [SQL: u'SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen \nFROM user \nWHERE user.id = ?'] [parameters: (4,)] (Background on this error at: http://sqlalche.me/e/e3q8)
-2018-12-26 16:02:31,576 ERROR: Exception on /index [GET] [in /usr/lib64/python2.7/site-packages/flask/app.py:1761]
+2018-12-26 16:06:19,734 ERROR: Exception on / [GET] [in /usr/lib64/python2.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/usr/lib64/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()

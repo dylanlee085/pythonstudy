@@ -1,8 +1,4 @@
-2018-12-26 15:58:58,953 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 15:58:59,164 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:01:14,156 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:01:18,129 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:01:21,873 ERROR: Exception on /indexx [GET] [in /usr/lib64/python2.7/site-packages/flask/app.py:1761]
+2018-12-26 16:01:34,419 ERROR: Exception on /index [GET] [in /usr/lib64/python2.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/usr/lib64/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -61,7 +57,7 @@ Traceback (most recent call last):
   File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
     cursor.execute(statement, parameters)
 OperationalError: (sqlite3.OperationalError) no such table: user [SQL: u'SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen \nFROM user \nWHERE user.id = ?'] [parameters: (4,)] (Background on this error at: http://sqlalche.me/e/e3q8)
-2018-12-26 16:01:30,460 ERROR: Exception on /index [GET] [in /usr/lib64/python2.7/site-packages/flask/app.py:1761]
+2018-12-26 16:02:31,576 ERROR: Exception on /index [GET] [in /usr/lib64/python2.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/usr/lib64/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()

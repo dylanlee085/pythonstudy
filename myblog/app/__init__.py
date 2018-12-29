@@ -15,6 +15,14 @@ from flask_migrate import Migrate
 #导入LoginManager
 from flask_login import LoginManager
 
+#导入mail模块
+from flask_mail import Mail
+
+#bootstrap
+from flask_bootstrap import Bootstrap
+
+#moment
+from flask_moment import Moment
 
 app = Flask(__name__)
 #加载配置模块
@@ -27,6 +35,15 @@ migrate = Migrate(app, db)
 #login实例
 login = LoginManager(app)
 login.login_view = 'login'
+
+#mail实例
+mail = Mail(app)
+
+#bootstrap
+bootstrap = Bootstrap(app)
+
+#moment
+moment = Moment(app)
 
 #导入视图模块
 from app import views, models, errors

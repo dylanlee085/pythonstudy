@@ -1,105 +1,45 @@
-2018-12-26 16:11:22,620 ERROR: Exception on / [GET] [in /usr/lib64/python2.7/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 1811, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "/usr/lib64/python2.7/site-packages/flask/app.py", line 2087, in preprocess_request
-    rv = func()
-  File "/data/pythonstudy/myblog/app/views.py", line 31, in before_request
-    if current_user.is_authenticated:
-  File "/usr/lib/python2.7/site-packages/werkzeug/local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-  File "/usr/lib/python2.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
-    return self.__local()
-  File "/usr/lib/python2.7/site-packages/flask_login/utils.py", line 26, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "/usr/lib/python2.7/site-packages/flask_login/utils.py", line 335, in _get_user
-    current_app.login_manager._load_user()
-  File "/usr/lib/python2.7/site-packages/flask_login/login_manager.py", line 359, in _load_user
-    return self.reload_user()
-  File "/usr/lib/python2.7/site-packages/flask_login/login_manager.py", line 321, in reload_user
-    user = self.user_callback(user_id)
-  File "/data/pythonstudy/myblog/app/models.py", line 60, in load_user
-    return User.query.get(int(id))
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/orm/query.py", line 924, in get
-    ident, loading.load_on_pk_identity)
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/orm/query.py", line 1007, in _get_impl
-    return db_load_fn(self, primary_key_identity)
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/orm/loading.py", line 250, in load_on_pk_identity
-    return q.one()
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/orm/query.py", line 2954, in one
-    ret = self.one_or_none()
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/orm/query.py", line 2924, in one_or_none
-    ret = list(self)
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/orm/query.py", line 2995, in __iter__
-    return self._execute_and_instances(context)
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/orm/query.py", line 3018, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/base.py", line 948, in execute
-    return meth(self, multiparams, params)
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
-    compiled_sql, distilled_params
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
-    context)
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
-    exc_info
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
-    context)
-  File "/usr/lib64/python2.7/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
-    cursor.execute(statement, parameters)
-OperationalError: (sqlite3.OperationalError) no such table: user [SQL: u'SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen \nFROM user \nWHERE user.id = ?'] [parameters: (4,)] (Background on this error at: http://sqlalche.me/e/e3q8)
-2018-12-26 16:13:01,248 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:13:01,461 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:14:46,257 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:15:51,935 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:16:10,579 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:16:10,795 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:16:46,250 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:24:40,961 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:24:41,173 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:28:02,701 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:28:02,909 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:28:44,416 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:31:51,419 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:32:03,894 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:32:06,419 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:32:12,253 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:32:12,464 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:33:31,589 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-26 16:33:31,798 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:01:01,489 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:01:01,783 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:05:37,686 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:28:32,385 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:30:19,213 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:35:45,233 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:38:21,383 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:39:30,165 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:39:39,848 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:46:45,669 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:48:05,401 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:54:29,207 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 16:54:32,596 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:00:05,962 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:00:22,312 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:01:16,898 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:02:12,514 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:06:22,981 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:06:30,510 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:06:53,250 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:07:00,082 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:11:14,126 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:12:09,436 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:12:17,743 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:12:23,431 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:12:30,104 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
-2018-12-27 17:15:59,571 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 10:43:57,567 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 10:44:52,149 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 10:55:41,626 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 10:55:41,839 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 10:57:40,802 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 10:58:25,296 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 11:15:12,538 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 11:17:54,737 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 11:19:16,422 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 11:19:28,745 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 11:21:38,823 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 11:21:39,035 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 11:30:57,577 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 11:35:09,212 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 11:38:46,640 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:71]
+2018-12-28 15:53:18,705 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 15:55:09,572 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 15:56:15,201 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:10:19,831 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:10:20,083 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:16:49,741 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:19:24,942 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:24:35,223 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:24:35,475 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:26:47,618 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:26:47,868 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:28:03,652 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:33:06,820 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:40:34,731 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:43:12,987 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:43:23,365 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:45:20,387 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:45:49,878 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:46:20,626 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:46:29,937 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:47:04,662 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:58:20,625 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:58:20,876 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 16:59:53,712 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:78]
+2018-12-28 17:14:31,444 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:80]
+2018-12-28 17:14:46,880 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:83]
+2018-12-28 17:15:49,574 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:85]
+2018-12-28 17:16:07,994 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:88]
+2018-12-28 17:17:19,729 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:88]
+2018-12-28 17:17:57,243 INFO: Microblog startup [in /data/pythonstudy/myblog/app/__init__.py:88]

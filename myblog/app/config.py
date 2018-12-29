@@ -12,4 +12,6 @@ class Config(object):
     MAIL_USE_SSL = os.environ.get('MAIL_USE_SSL')
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    ADMINS = ['782820303@qq.com']
+    ADMINS = ['lianjop@sina.com']
+    #分页
+    POSTS_PER_PAGE = 3
