@@ -66,17 +66,14 @@ def get_stock_name(symbols):
         data = html[pos_start:pos_end]
         data = json.loads(data.split(';')[0])
         for stock in  data['last_rebalancing']['holdings']:
-<<<<<<< HEAD
             stock_symbol = stock['stock_symbol']
             stock_name = stock['stock_name']
             weight = stock['weight']
             yield symbol, stock_symbol ,stock_name, weight
-=======
         #    print stock
         #    print stock['stock_symbol']
         #    print stock['stock_name']
         #    print stock['weight']
->>>>>>> 671700bcbe3db56006c81f1f15116934f2685873
         print "========%s=========" % symbol
 
 def insert_mysql(symbol, stock_symbol ,stock_name, weight):
