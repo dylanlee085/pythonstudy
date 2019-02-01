@@ -1,0 +1,60 @@
+#在模版中使用控制语句
+#if语句
+{% if user %}
+    Hello, {{ user }}!
+{% else %}
+    Hello, Stranger!
+{% endif %}
+
+#for语句
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment}} </li>
+    {% endfor %}
+</ul>
+
+
+#宏
+{% macro render_comment(comment)%}
+    <li>{{ comment }}</li>>
+{% endmacro %}
+
+<ul>
+    {% for comment in comments %}
+        {{ render_comment(comment) }}
+    {% endfor %}
+</ul>
+
+
+#重用宏
+{% import 'macros.html' as macros %}
+<ul>
+    {% for comment in comments %}
+        {{ macros.render_comment(comment) }}
+    {% endfor %}
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

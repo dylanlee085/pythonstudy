@@ -4,7 +4,7 @@
 import smtplib
 from email.mime.text import MIMEText
 
-username = "lianjop@163.com"
+username = ""
 password = "*******"
 host="smtp.163.com"
 
