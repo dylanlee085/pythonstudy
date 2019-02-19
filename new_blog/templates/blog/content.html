@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}blog article{% endblock %}
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h1>{{ article.article }}</h1>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <p class="text-center"><span>{{ article.author.username }}</span><span style="margin-left:20px">{{ publish }}</span></p>
+        <div>{{ article.body }}</div>
+    </div>
+        <div class="col-xs-6 col-md-4">
+            <h2>头像</h2>
+            <p>www.lee.com</p>
+            <img width="200px" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548844864911&di=1d4480adf5558edd63bbb89ca62d652b&imgtype=0&src=http%3A%2F%2Fimg.xinxic.com%2Fimg%2Fba814b15da1b5afb.jpg">
+        </div>
+</div>
+{% endblock %}
