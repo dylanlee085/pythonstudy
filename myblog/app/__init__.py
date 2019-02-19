@@ -24,6 +24,9 @@ from flask_bootstrap import Bootstrap
 #moment
 from flask_moment import Moment
 
+#flask-Babel
+from flask_babel import Babel
+
 app = Flask(__name__)
 #加载配置模块
 app.config.from_object(Config)
@@ -45,9 +48,19 @@ bootstrap = Bootstrap(app)
 #moment
 moment = Moment(app)
 
+#babel
+app = Flask(__name__)
+babel = Babel(app)
+
 #导入视图模块
 from app import views, models, errors
 
+
+from flask import request
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 #邮件配置
 import logging
@@ -86,3 +99,5 @@ if not app.debug:
 
     app.logger.setLevel(logging.INFO)
     app.logger.info('Microblog startup')
+
+

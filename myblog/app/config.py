@@ -15,3 +15,5 @@ class Config(object):
     ADMINS = ['lianjop@sina.com']
     #分页
     POSTS_PER_PAGE = 3
+    #语言
+    LANGUAGES = ['en', 'es']
