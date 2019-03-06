@@ -1,15 +1,17 @@
-#!/usr/bin/env python
+#! /usr/bin/env python
 # coding: utf-8
+
 
 from django import forms
 from django.contrib.auth.models import User
 from .models import UserProfile, UserInfo
 
+#表单中的数据不会写入数据库就继承forms.Form
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
-
+#表单中的数据会写入数据库就继承forms.ModelForm
 class RegistrationForm(forms.ModelForm):
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
     password2 = forms.CharField(label="Confirm Password", widget=forms.PasswordInput)
@@ -24,31 +26,22 @@ class RegistrationForm(forms.ModelForm):
             raise forms.ValidationError("passwords do not match.")
         return cd['password2']
 
-
-class UserProfileForm(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ("phone", "birth")
-
+# class UserProfileForm(forms.ModelForm):
+#     class Meta:
+#         model = UserProfile
+#         fields = ("phone",)
 
 
 
 class UserInfoForm(forms.ModelForm):
     class Meta:
         model = UserInfo
-        fields = ("school", "company", "profession", "address", "aboutme")
+        fields = ("school", "company", "profession", "address", "aboutme", "photo")
 
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ("email",)
-
-
-
-
-
-
-
 
 
 
