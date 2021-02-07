@@ -11,11 +11,13 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, unique=True)
 
     def __str__(self):
         return 'user {}'.format(self.user.username)
+
 
 class UserInfo(models.Model):
     user = models.OneToOneField(User, unique=True)
@@ -25,6 +27,7 @@ class UserInfo(models.Model):
     address = models.CharField(max_length=100, blank=True)
     aboutme = models.TextField(blank=True)
     photo = models.ImageField(blank=True)
+
 
 
     def __str__(self):
